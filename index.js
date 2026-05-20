@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const { Client, GatewayIntentBits } = require("discord.js");
 const { joinVoiceChannel } = require("@discordjs/voice");
 
@@ -20,7 +18,9 @@ client.once("clientReady", () => {
 
   const guild = client.guilds.cache.get(GUILD_ID);
 
-  if (!guild) return console.log("السيرفر غير موجود");
+  if (!guild) {
+    return console.log("السيرفر غير موجود");
+  }
 
   joinVoiceChannel({
     channelId: VOICE_CHANNEL_ID,
